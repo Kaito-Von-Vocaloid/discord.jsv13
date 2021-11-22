@@ -45,13 +45,14 @@ client.on('guildMemberUpdate', async(oldUser, newUser) => {
 				myGuild.members.cache.get(newUser.id).roles.add(tagRole).then(() => {
 					tagLog(newUser, 'true', oldUser.nickname);
 		    });
-	    } else {
-				if(oldUser.nickname.startsWith(myTag)){
-					myGuild.members.cache.get(newUser.id).roles.remove(tagRole).then(() => {
+	  } else {
+			if(oldUser.nickname == null) return;
+			if(oldUser.nickname.startsWith(myTag)){
+				myGuild.members.cache.get(newUser.id).roles.remove(tagRole).then(() => {
 						tagLog(newUser, 'false', oldUser);
-		      });
-		    }
-	    }
+		    });
+		  }
+	  }
 	}
 });
 
