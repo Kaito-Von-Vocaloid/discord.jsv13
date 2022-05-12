@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES"] });
 const embedColor = '#56F5B3';
-const prefix = '!';
 
 function ping(msg){
 	return(`Gecikme: ${Date.now() - msg.createdTimestamp}\nDiscord geçikmesi: ${Math.round(client.ws.ping)}`);
